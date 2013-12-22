@@ -73,10 +73,8 @@
 
 - (IBAction)servoChanged:(NSSlider*)sender
 {
-    NSString *string = [NSString stringWithFormat:@"Servo %d: %d\n", (int) [sender tag], [sender intValue]];
-	NSData *dataToSend = [[NSString stringWithFormat:@"{s:%d:%d}", (int) [sender tag], [sender intValue]] dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *dataToSend = [[NSString stringWithFormat:@"{s:%d:%d}", (int) [sender tag]-200, [sender intValue]] dataUsingEncoding:NSUTF8StringEncoding];
 	[self.serialPort sendData:dataToSend];
-    //[self output:string];
 }
 
 #pragma mark - ORSSerialPortDelegate Methods
@@ -95,10 +93,46 @@
     [self output:@"Disonnected\n"];
 }
 
+-(void) setAllServos
+{
+    for( int tag=200;tag<216;tag++)
+    {
+        NSSlider *slider = [self.view viewWithTag:tag];
+        [self servoChanged:slider];
+    }
+}
+
+-(void) parseForReady:(NSString *)str
+{
+    static NSString *match = @"Ready";
+    static int pos = 0;
+    
+    NSUInteger len = [str length];
+    
+    for( NSUInteger i=0; i<len;i++)
+    {
+        if( [str characterAtIndex:i] == [match characterAtIndex:pos])
+        {
+            pos++;
+            if( pos >= [match length])
+            {
+                [self setAllServos];
+                pos = 0;
+            }
+        }
+        else
+        {
+            pos = 0;
+        }
+    }
+    
+}
+
 - (void)serialPort:(ORSSerialPort *)serialPort didReceiveData:(NSData *)data
 {
 	NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	if ([string length] == 0) return;
+    [self parseForReady:string];
     [self output:string];
 }
 

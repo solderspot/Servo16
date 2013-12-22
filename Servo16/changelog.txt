@@ -1,4 +1,8 @@
 
+V1.1.0 - 12/22/13
+
+ - On connect servo states are updated
+
 V1.0.0 - 12/22/13
 
  - Initial working version.

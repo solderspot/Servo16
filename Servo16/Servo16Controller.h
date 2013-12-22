@@ -41,6 +41,7 @@
 @property (unsafe_unretained) IBOutlet NSButton *connectButton;
 @property (unsafe_unretained) IBOutlet NSButton *baudButton;
 @property (unsafe_unretained) IBOutlet NSTextView *serialOutput;
+@property (unsafe_unretained) IBOutlet NSView *view;
 
 @property (nonatomic, strong) ORSSerialPortManager *serialPortManager;
 @property (nonatomic, strong) ORSSerialPort *serialPort;

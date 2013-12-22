@@ -28,41 +28,35 @@
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
 
-// create servo driver
-Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver(0x40);  // change 0x40 to match your servo shield if necessary
-String input;
+// create the servo driver instance
+// change 0x40 to match your servo shield if necessary
+Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver(0x40);  
 
 void setup() 
 {
+  // init serial port coms
   Serial.begin(9600);
-  input.reserve(200);
+
+  // init Adafruit's driver and set pulse frequency
   pwm.begin();
   pwm.setPWMFreq(50);  
-  for(int i=0; i<16; i++)
-  {
-    setAngle(i,90);
-  }
+
+  // tell Servo16 app that we are ready for commands
   Serial.println("Servo16 Ready!");
 }
 
 // helper function that uses angles rather than pulse ticks
 void setAngle( int channel, int angle )
 {
-  Serial.print("S:");
-  Serial.print( channel );
-  Serial.print(":");
-  Serial.println( angle );
-  
-  
-  // 4096 ticks is 20,000 us
+  // 4096 ticks is 20,000 us (50Hz)
   // Angle 0 is 500 us
   // angle 180 is 2,500 us
   long ticks = ((500L + (2000L*angle)/180L)*4096L)/20000L;
   // update the servo channel with the new pusle
   pwm.setPWM(channel, 0, ticks);
-  
 }
 
+// returns substring of str from pos till delim
 String parseTill( char delim, int *pos, String str )
 {
   int len = str.length();
@@ -83,15 +77,19 @@ String parseTill( char delim, int *pos, String str )
   return p;
 }
 
-void execute( String input )
+// parse command and execute
+void execute( String str )
 {
-  int pos = 0;
-  String cmd = parseTill(':', &pos, input);
-  String servo = parseTill(':', &pos, input);
-  String angle = parseTill(':', &pos, input);
+  // format {<action name>:<action data>....}
   
-  if( cmd == "s" )
+  int pos = 0;
+  String action = parseTill(':', &pos, str);
+  
+  if( action == "s" )
   {
+    //format {s:<servo-index>:<new-angle>}
+    String servo = parseTill(':', &pos, str);
+    String angle = parseTill(':', &pos, str);
     setAngle(servo.toInt(), angle.toInt());
   }
 }
@@ -100,34 +98,38 @@ void execute( String input )
 // main loop
 void loop()
 {
-
+  // serialEvent() does all the work
 }
 
+String cmd = NULL;  // used to store incomming command
+
+// called after every loop() to handle serial coms
 void serialEvent() 
 {
-  static int cmd = 0;
   
   while (Serial.available()) 
   {
-    char ch = (char)Serial.read(); 
+    char ch = (char)Serial.read();
+    
     if(cmd)
     {
       if( ch =='}')
       {
-        execute(input);
-        cmd = 0;
+        execute(cmd);
+        // wait for new command
+        cmd = NULL;
       }
       else
       {
-        input += ch;
+        cmd += ch;
       }
     }
     else
     {
       if( ch == '{' )
       {
-        cmd = 1;
-        input = "";
+        // start of new command
+        cmd = "";
       }
     }
   }

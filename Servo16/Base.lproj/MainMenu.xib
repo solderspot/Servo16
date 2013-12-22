@@ -672,11 +672,6 @@
                             </menu>
                         </popUpButtonCell>
                         <connections>
-                            <binding destination="gbi-Oa-p3A" name="contentValues" keyPath="serialPortManager.availablePorts.name" previousBinding="xQr-MY-lKi" id="eNF-DT-Nvd">
-                                <dictionary key="options">
-                                    <bool key="NSInsertsNullPlaceholder" value="YES"/>
-                                </dictionary>
-                            </binding>
                             <binding destination="gbi-Oa-p3A" name="selectedObject" keyPath="serialPort" previousBinding="eNF-DT-Nvd" id="f5t-La-dvO"/>
                             <binding destination="gbi-Oa-p3A" name="content" keyPath="serialPortManager.availablePorts" id="xQr-MY-lKi">
                                 <dictionary key="options">
@@ -684,6 +679,11 @@
                                     <string key="NSNotApplicablePlaceholder">None</string>
                                     <string key="NSNoSelectionPlaceholder">None</string>
                                     <string key="NSNullPlaceholder">None</string>
+                                </dictionary>
+                            </binding>
+                            <binding destination="gbi-Oa-p3A" name="contentValues" keyPath="serialPortManager.availablePorts.name" previousBinding="xQr-MY-lKi" id="eNF-DT-Nvd">
+                                <dictionary key="options">
+                                    <bool key="NSInsertsNullPlaceholder" value="YES"/>
                                 </dictionary>
                             </binding>
                         </connections>
@@ -703,8 +703,8 @@
                             </menu>
                         </popUpButtonCell>
                         <connections>
-                            <binding destination="gbi-Oa-p3A" name="selectedObject" keyPath="serialPort.baudRate" previousBinding="o6v-xz-vqI" id="bUK-wC-VDP"/>
                             <binding destination="gbi-Oa-p3A" name="content" keyPath="self.availableBaudRates" id="o6v-xz-vqI"/>
+                            <binding destination="gbi-Oa-p3A" name="selectedObject" keyPath="serialPort.baudRate" previousBinding="o6v-xz-vqI" id="bUK-wC-VDP"/>
                         </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gm2-Uu-mFg">
@@ -754,7 +754,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pte-WL-JDv">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="200" translatesAutoresizingMaskIntoConstraints="NO" id="Pte-WL-JDv">
                         <rect key="frame" x="87" y="400" width="187" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="xFz-ci-rB8"/>
@@ -771,7 +771,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="TSq-p9-HS5">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="201" translatesAutoresizingMaskIntoConstraints="NO" id="TSq-p9-HS5">
                         <rect key="frame" x="88" y="375" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="1Ba-M8-W6X"/>
@@ -788,7 +788,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="KN7-kb-eNo">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="202" translatesAutoresizingMaskIntoConstraints="NO" id="KN7-kb-eNo">
                         <rect key="frame" x="87" y="350" width="187" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="Cko-yC-2yD"/>
@@ -805,7 +805,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="KtG-U4-fxq">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="203" translatesAutoresizingMaskIntoConstraints="NO" id="KtG-U4-fxq">
                         <rect key="frame" x="87" y="325" width="187" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="Jun-cf-Ofv"/>
@@ -822,7 +822,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="evd-gs-U0l">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="204" translatesAutoresizingMaskIntoConstraints="NO" id="evd-gs-U0l">
                         <rect key="frame" x="88" y="300" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="mO9-mF-P5G"/>
@@ -839,7 +839,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ihk-uj-IOE">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="205" translatesAutoresizingMaskIntoConstraints="NO" id="Ihk-uj-IOE">
                         <rect key="frame" x="89" y="275" width="185" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="g8M-25-Bb2"/>
@@ -856,7 +856,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="6" translatesAutoresizingMaskIntoConstraints="NO" id="TyD-Vw-2Ov">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="206" translatesAutoresizingMaskIntoConstraints="NO" id="TyD-Vw-2Ov">
                         <rect key="frame" x="88" y="250" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="hUH-3h-av6"/>
@@ -873,7 +873,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="7" translatesAutoresizingMaskIntoConstraints="NO" id="Ofb-lM-8oz">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="207" translatesAutoresizingMaskIntoConstraints="NO" id="Ofb-lM-8oz">
                         <rect key="frame" x="88" y="225" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="7DC-N9-lXJ"/>
@@ -890,7 +890,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="9" translatesAutoresizingMaskIntoConstraints="NO" id="X0m-2d-Ifa">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="209" translatesAutoresizingMaskIntoConstraints="NO" id="X0m-2d-Ifa">
                         <rect key="frame" x="397" y="375" width="187" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="Ocq-KG-EQV"/>
@@ -907,7 +907,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="10" translatesAutoresizingMaskIntoConstraints="NO" id="jwR-Cp-Y2b">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="210" translatesAutoresizingMaskIntoConstraints="NO" id="jwR-Cp-Y2b">
                         <rect key="frame" x="398" y="350" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="SzD-BU-eEU"/>
@@ -924,7 +924,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="11" translatesAutoresizingMaskIntoConstraints="NO" id="PcX-GZ-Eiz">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="211" translatesAutoresizingMaskIntoConstraints="NO" id="PcX-GZ-Eiz">
                         <rect key="frame" x="397" y="325" width="187" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="VaO-AY-T4W"/>
@@ -941,7 +941,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ptb-EU-AmT">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="212" translatesAutoresizingMaskIntoConstraints="NO" id="Ptb-EU-AmT">
                         <rect key="frame" x="397" y="300" width="187" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="f06-mA-yL9"/>
@@ -958,7 +958,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="13" translatesAutoresizingMaskIntoConstraints="NO" id="1En-H4-IjH">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="213" translatesAutoresizingMaskIntoConstraints="NO" id="1En-H4-IjH">
                         <rect key="frame" x="398" y="275" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="xNu-3w-bvI"/>
@@ -975,7 +975,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="14" translatesAutoresizingMaskIntoConstraints="NO" id="fdU-tc-ebs">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="214" translatesAutoresizingMaskIntoConstraints="NO" id="fdU-tc-ebs">
                         <rect key="frame" x="399" y="250" width="185" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="ss3-pw-LYf"/>
@@ -992,7 +992,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="15" translatesAutoresizingMaskIntoConstraints="NO" id="iWn-jQ-Qcr">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="215" translatesAutoresizingMaskIntoConstraints="NO" id="iWn-jQ-Qcr">
                         <rect key="frame" x="398" y="225" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="9QC-mQ-ec1"/>
@@ -1009,7 +1009,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dhq-hb-iZn">
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" tag="208" translatesAutoresizingMaskIntoConstraints="NO" id="Dhq-hb-iZn">
                         <rect key="frame" x="398" y="400" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="V0Z-zo-uc3"/>
@@ -1073,6 +1073,7 @@
                 <outlet property="baudButton" destination="kC7-9Y-6c4" id="lYS-Ra-kmZ"/>
                 <outlet property="connectButton" destination="Wv8-Xr-Z2w" id="Vvu-RE-2c5"/>
                 <outlet property="serialOutput" destination="ZcM-Hy-FwZ" id="QSh-cv-kbm"/>
+                <outlet property="view" destination="372" id="Gei-9F-Qu3"/>
             </connections>
         </customObject>
         <userDefaultsController representsSharedInstance="YES" id="jzM-2s-0Oa"/>
