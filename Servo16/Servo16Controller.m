@@ -1,10 +1,28 @@
 //
-//  Serv016Controller.m
+//  Servo16Controller.m
 //  Servo16
 //
 //  Created by Thomas Rolfs on 12/21/13.
 //  Copyright (c) 2013 Solder Spot. All rights reserved.
 //
+//	Permission is hereby granted, free of charge, to any person obtaining a
+//	copy of this software and associated documentation files (the
+//	"Software"), to deal in the Software without restriction, including
+//	without limitation the rights to use, copy, modify, merge, publish,
+//	distribute, sublicense, and/or sell copies of the Software, and to
+//	permit persons to whom the Software is furnished to do so, subject to
+//	the following conditions:
+//
+//	The above copyright notice and this permission notice shall be included
+//	in all copies or substantial portions of the Software.
+//
+//	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+//	OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+//	MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+//	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+//	CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+//	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+//	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "Servo16Controller.h"
 #import "ORSSerialPort/ORSSerialPortManager.h"
@@ -38,52 +56,63 @@
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+-(void) output:(NSString*) string
+{
+    NSUInteger len = [[self.serialOutput string] length];
+	[self.serialOutput.textStorage.mutableString appendString:string];
+    [self.serialOutput scrollRangeToVisible:NSMakeRange(len , 0)];
+	[self.serialOutput setNeedsDisplay:YES];
+}
+
 #pragma mark - Actions
+
+- (IBAction)openOrClosePort:(id)sender
+{
+	self.serialPort.isOpen ? [self.serialPort close] : [self.serialPort open];
+}
 
 - (IBAction)servoChanged:(NSSlider*)sender
 {
-    NSString *string = [NSString stringWithFormat:@"Servo %d: %d", (int) [sender tag], [sender intValue]];
-	NSData *dataToSend = [string dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *string = [NSString stringWithFormat:@"Servo %d: %d\n", (int) [sender tag], [sender intValue]];
+	NSData *dataToSend = [[NSString stringWithFormat:@"{s:%d:%d}", (int) [sender tag], [sender intValue]] dataUsingEncoding:NSUTF8StringEncoding];
 	[self.serialPort sendData:dataToSend];
-	[self.serialOutput.textStorage.mutableString appendString:string];
-	[self.serialOutput.textStorage.mutableString appendString:@"\n"];
-    NSUInteger len = [[self.serialOutput string] length];
-    [self.serialOutput scrollRangeToVisible:NSMakeRange(len , 0)];
-	[self.serialOutput setNeedsDisplay:YES];
+    //[self output:string];
 }
 
 #pragma mark - ORSSerialPortDelegate Methods
 
 - (void)serialPortWasOpened:(ORSSerialPort *)serialPort
 {
-	[self.portStatus setStringValue:@"Connected"];
+	self.connectButton.title = @"Close";
+    self.baudButton.enabled = NO;
+    [self output:@"Connected\n"];
 }
 
 - (void)serialPortWasClosed:(ORSSerialPort *)serialPort
 {
-	[self.portStatus setStringValue:@"Closed"];
+	self.connectButton.title = @"Connect";
+    self.baudButton.enabled = YES;
+    [self output:@"Disonnected\n"];
 }
 
 - (void)serialPort:(ORSSerialPort *)serialPort didReceiveData:(NSData *)data
 {
 	NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	if ([string length] == 0) return;
-	[self.serialOutput.textStorage.mutableString appendString:string];
-    NSUInteger len = [[self.serialOutput string] length];
-    [self.serialOutput scrollRangeToVisible:NSMakeRange(len , 0)];
-	[self.serialOutput setNeedsDisplay:YES];
+    [self output:string];
 }
 
 - (void)serialPortWasRemovedFromSystem:(ORSSerialPort *)serialPort;
 {
 	// After a serial port is removed from the system, it is invalid and we must discard any references to it
 	self.serialPort = nil;
-	[self.portStatus setStringValue:@"Open"];
+	self.connectButton.title = @"Connect";
 }
 
 - (void)serialPort:(ORSSerialPort *)serialPort didEncounterError:(NSError *)error
 {
 	NSLog(@"Serial port %@ encountered an error: %@", serialPort, error);
+    [self output:[NSString stringWithFormat:@"Error: %@\n", [error.userInfo objectForKey:NSLocalizedDescriptionKey]]];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -118,13 +147,15 @@
 	NSArray *connectedPorts = [[notification userInfo] objectForKey:ORSConnectedSerialPortsKey];
 	NSLog(@"Ports were connected: %@", connectedPorts);
 	[self postUserNotificationForConnectedPorts:connectedPorts];
+    [self output:[NSString stringWithFormat:@"Ports were connected: %@\n", connectedPorts]];
 }
 
 - (void)serialPortsWereDisconnected:(NSNotification *)notification
 {
 	NSArray *disconnectedPorts = [[notification userInfo] objectForKey:ORSDisconnectedSerialPortsKey];
 	NSLog(@"Ports were disconnected: %@", disconnectedPorts);
-	[self postUserNotificationForDisconnectedPorts:disconnectedPorts];
+    [self postUserNotificationForDisconnectedPorts:disconnectedPorts];
+    [self output:[NSString stringWithFormat:@"Ports were disconnected: %@\n", disconnectedPorts]];
 	
 }
 
@@ -167,7 +198,8 @@
 
 #pragma mark - Properties
 
-@synthesize portStatus = _portStatus;
+@synthesize connectButton = _connectButton;
+@synthesize baudButton = _baudButton;
 @synthesize serialOutput = _serialOutput;
 @synthesize serialPortManager = _serialPortManager;
 
@@ -194,6 +226,11 @@
 		_serialPort = port;
 		
 		_serialPort.delegate = self;
+        _serialPort.numberOfStopBits = 1;
+        _serialPort.parity = ORSSerialPortParityNone;
+        BOOL enabled = port!=nil;
+        self.connectButton.enabled = enabled;
+        self.baudButton.enabled = !port.isOpen;
 	}
 }
 

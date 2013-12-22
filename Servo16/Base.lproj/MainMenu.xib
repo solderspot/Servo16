@@ -657,12 +657,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="602" height="487"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5fz-5K-vlj">
-                        <rect key="frame" x="61" y="442" width="198" height="26"/>
+                    <popUpButton verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5fz-5K-vlj">
+                        <rect key="frame" x="61" y="442" width="296" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="XiY-0U-Qb1" id="om9-uz-tzJ">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="hhs-cs-Xyx">
                                 <items>
                                     <menuItem title="Item 1" state="on" id="XiY-0U-Qb1"/>
@@ -672,6 +672,12 @@
                             </menu>
                         </popUpButtonCell>
                         <connections>
+                            <binding destination="gbi-Oa-p3A" name="contentValues" keyPath="serialPortManager.availablePorts.name" previousBinding="xQr-MY-lKi" id="eNF-DT-Nvd">
+                                <dictionary key="options">
+                                    <bool key="NSInsertsNullPlaceholder" value="YES"/>
+                                </dictionary>
+                            </binding>
+                            <binding destination="gbi-Oa-p3A" name="selectedObject" keyPath="serialPort" previousBinding="eNF-DT-Nvd" id="f5t-La-dvO"/>
                             <binding destination="gbi-Oa-p3A" name="content" keyPath="serialPortManager.availablePorts" id="xQr-MY-lKi">
                                 <dictionary key="options">
                                     <bool key="NSInsertsNullPlaceholder" value="YES"/>
@@ -682,12 +688,12 @@
                             </binding>
                         </connections>
                     </popUpButton>
-                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kC7-9Y-6c4">
-                        <rect key="frame" x="311" y="442" width="89" height="26"/>
+                    <popUpButton verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kC7-9Y-6c4">
+                        <rect key="frame" x="399" y="442" width="100" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="pQq-h0-Y8h">
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="pQq-h0-Y8h">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="OD8-i2-eaQ">
                                 <items>
                                     <menuItem title="Item 1" id="Tn5-3g-K1M"/>
@@ -697,11 +703,11 @@
                             </menu>
                         </popUpButtonCell>
                         <connections>
+                            <binding destination="gbi-Oa-p3A" name="selectedObject" keyPath="serialPort.baudRate" previousBinding="o6v-xz-vqI" id="bUK-wC-VDP"/>
                             <binding destination="gbi-Oa-p3A" name="content" keyPath="self.availableBaudRates" id="o6v-xz-vqI"/>
-                            <binding destination="gbi-Oa-p3A" name="selectedIndex" keyPath="self.defaultBaudRateIndex" previousBinding="o6v-xz-vqI" id="lWH-pV-WQr"/>
                         </connections>
                     </popUpButton>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gm2-Uu-mFg">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gm2-Uu-mFg">
                         <rect key="frame" x="18" y="447" width="39" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Port:" id="8cW-RI-aFo">
@@ -710,8 +716,8 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2h-9q-AN3">
-                        <rect key="frame" x="262" y="448" width="45" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2h-9q-AN3">
+                        <rect key="frame" x="355" y="448" width="45" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Baud:" id="uLQ-dR-OIQ">
                             <font key="font" metaFont="system"/>
@@ -720,20 +726,20 @@
                         </textFieldCell>
                     </textField>
                     <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAy-fK-JFP">
-                        <rect key="frame" x="19" y="29" width="563" height="166"/>
+                        <rect key="frame" x="19" y="29" width="563" height="154"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" id="9QD-wY-IGZ">
-                            <rect key="frame" x="1" y="1" width="546" height="164"/>
+                            <rect key="frame" x="1" y="1" width="546" height="152"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView ambiguous="YES" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="ZcM-Hy-FwZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="546" height="164"/>
+                                <textView ambiguous="YES" editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" id="ZcM-Hy-FwZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="546" height="152"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="546" height="164"/>
+                                    <size key="minSize" width="546" height="152"/>
                                     <size key="maxSize" width="689" height="10000000"/>
                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="546" height="164"/>
+                                    <size key="minSize" width="546" height="152"/>
                                     <size key="maxSize" width="689" height="10000000"/>
                                 </textView>
                             </subviews>
@@ -744,28 +750,10 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="F0Q-7S-73J">
-                            <rect key="frame" x="547" y="1" width="15" height="164"/>
+                            <rect key="frame" x="547" y="1" width="15" height="152"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rM5-6h-v6u">
-                        <rect key="frame" x="403" y="448" width="53" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Status:" id="vDd-Is-78R">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8eI-3k-oUX">
-                        <rect key="frame" x="450" y="444" width="132" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="1Rd-3k-sh9">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pte-WL-JDv">
                         <rect key="frame" x="87" y="400" width="187" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1038,7 +1026,40 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wv8-Xr-Z2w">
+                        <rect key="frame" x="506" y="438" width="82" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Connect" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QFL-jK-Qc4">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="openOrClosePort:" target="gbi-Oa-p3A" id="4ET-b8-Znu"/>
+                        </connections>
+                    </button>
+                    <box autoresizesSubviews="NO" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="EwV-lh-aQU">
+                        <rect key="frame" x="19" y="203" width="563" height="5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <font key="titleFont" metaFont="system"/>
+                    </box>
+                    <box autoresizesSubviews="NO" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="zLy-vf-soc">
+                        <rect key="frame" x="19" y="430" width="563" height="5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <font key="titleFont" metaFont="system"/>
+                    </box>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="5fz-5K-vlj" firstAttribute="centerY" secondItem="Wv8-Xr-Z2w" secondAttribute="centerY" id="0qv-Hb-htF"/>
+                    <constraint firstAttribute="centerX" secondItem="zLy-vf-soc" secondAttribute="centerX" id="DWM-I1-thk"/>
+                    <constraint firstItem="5fz-5K-vlj" firstAttribute="centerY" secondItem="kC7-9Y-6c4" secondAttribute="centerY" id="dA4-d2-R3u"/>
+                    <constraint firstItem="5fz-5K-vlj" firstAttribute="centerY" secondItem="a2h-9q-AN3" secondAttribute="centerY" id="ifb-t8-YQa"/>
+                    <constraint firstItem="5fz-5K-vlj" firstAttribute="centerY" secondItem="gm2-Uu-mFg" secondAttribute="centerY" id="vls-x1-iGX"/>
+                    <constraint firstAttribute="centerX" secondItem="EwV-lh-aQU" secondAttribute="centerX" id="wVp-Y0-lIe"/>
+                </constraints>
             </view>
         </window>
         <customObject id="494" customClass="AppDelegate">
@@ -1049,7 +1070,8 @@
         <customObject id="420" customClass="NSFontManager"/>
         <customObject id="gbi-Oa-p3A" customClass="Servo16Controller">
             <connections>
-                <outlet property="portStatus" destination="8eI-3k-oUX" id="pof-Z3-nCk"/>
+                <outlet property="baudButton" destination="kC7-9Y-6c4" id="lYS-Ra-kmZ"/>
+                <outlet property="connectButton" destination="Wv8-Xr-Z2w" id="Vvu-RE-2c5"/>
                 <outlet property="serialOutput" destination="ZcM-Hy-FwZ" id="QSh-cv-kbm"/>
             </connections>
         </customObject>

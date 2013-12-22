@@ -18,6 +18,7 @@
 		F82FDE1318658CA000C4E650 /* ORSSerialPortManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F82FDE1118658CA000C4E650 /* ORSSerialPortManager.m */; };
 		F82FDE1618658D1300C4E650 /* Servo16Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = F82FDE1518658D1300C4E650 /* Servo16Controller.m */; };
 		F82FDE181865923500C4E650 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F82FDE171865923500C4E650 /* IOKit.framework */; };
+		F8A167691867013500CD9DAE /* changelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = F8A167681867013500CD9DAE /* changelog.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		F82FDE1418658D1300C4E650 /* Servo16Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Servo16Controller.h; sourceTree = "<group>"; };
 		F82FDE1518658D1300C4E650 /* Servo16Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Servo16Controller.m; sourceTree = "<group>"; };
 		F82FDE171865923500C4E650 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		F8A167681867013500CD9DAE /* changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = changelog.txt; path = Servo16/changelog.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		F82FDDC41865643F00C4E650 = {
 			isa = PBXGroup;
 			children = (
+				F8A167681867013500CD9DAE /* changelog.txt */,
 				F82FDDD61865643F00C4E650 /* Servo16 */,
 				F82FDDCF1865643F00C4E650 /* Frameworks */,
 				F82FDDCE1865643F00C4E650 /* Products */,
@@ -184,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8A167691867013500CD9DAE /* changelog.txt in Resources */,
 				F82FDDDB1865643F00C4E650 /* InfoPlist.strings in Resources */,
 				F82FDDE91865643F00C4E650 /* Images.xcassets in Resources */,
 				F82FDDE11865643F00C4E650 /* Credits.rtf in Resources */,
