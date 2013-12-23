@@ -10,7 +10,7 @@ Simple OSX app + sketch to drive the Adafruit Servo Shield.
 **Step 3:** Upload Servo16.ino sketch to Arduino... or install the [SS_Servorator Library](https://github.com/solderspot/SS_Servorator.git) and upload the Servorator16.ino sketch to the Arduino.
 
 
-**Step 4:** In the Servo16 app connect to Arduino. Use the sliders to control the servos. **Note:** Servo Speed and Update Freq sliders only work with the Servorator16.ino scketch. They have no efect with the Servo16.ino sketch.
+**Step 4:** In the Servo16 app connect to Arduino. Use the sliders to control the servos. **Note:** Servo Speed and Update Freq sliders only work with the Servorator16.ino sketch. They have no efect when used with the Servo16.ino sketch.
 
 
 
