@@ -1,4 +1,8 @@
 
+V1.2.0 - 12/23/13
+
+ - Added SS_Servorator support for servo speed and service frequency
+
 V1.1.0 - 12/22/13
 
  - On connect servo states are updated
