@@ -79,7 +79,6 @@ void loop()
 void update_servo( SS_Index servo, SS_Angle angle, void *data)
 {
   // angles are in tenths of degrees so 180 degrees is actually 1800
-  Serial.println(angle/10);
   // 4096 ticks is 20,000 us (50Hz)
   // Angle 0 is 500 us
   // angle 1800 is 2,500 us
