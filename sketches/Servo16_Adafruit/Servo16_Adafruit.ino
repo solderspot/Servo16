@@ -35,6 +35,8 @@
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
 
+#define NUM_SERVOS 12
+
 // create the servo driver instance
 // change 0x40 to match your servo shield if necessary
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver(0x40);  
@@ -66,7 +68,7 @@ void loop()
 }
 
 // the servo handler for Servorator
-void update_servo( int servo, int angle)
+void update_servo( int index, int angle)
 {
   if (index >= 0 && index < NUM_SERVOS)
   {
@@ -77,7 +79,7 @@ void update_servo( int servo, int angle)
     // angle 1800 is 2,500 us
     long ticks = ((500L + (2000L*angle)/1800L)*4096L)/20000L;
     // update the servo channel with the new pusle
-    pwm.setPWM(servo, 0, ticks);
+    pwm.setPWM(index, 0, ticks);
   }
 }
 
