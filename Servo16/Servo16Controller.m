@@ -219,7 +219,7 @@
 	NSArray *connectedPorts = [[notification userInfo] objectForKey:ORSConnectedSerialPortsKey];
 	NSLog(@"Ports were connected: %@", connectedPorts);
 	[self postUserNotificationForConnectedPorts:connectedPorts];
-    [self output:[NSString stringWithFormat:@"Ports were connected: %@\n", connectedPorts]];
+    //[self output:[NSString stringWithFormat:@"Ports were connected: %@\n", connectedPorts]];
 }
 
 - (void)serialPortsWereDisconnected:(NSNotification *)notification
@@ -227,7 +227,7 @@
 	NSArray *disconnectedPorts = [[notification userInfo] objectForKey:ORSDisconnectedSerialPortsKey];
 	NSLog(@"Ports were disconnected: %@", disconnectedPorts);
     [self postUserNotificationForDisconnectedPorts:disconnectedPorts];
-    [self output:[NSString stringWithFormat:@"Ports were disconnected: %@\n", disconnectedPorts]];
+    //[self output:[NSString stringWithFormat:@"Ports were disconnected: %@\n", disconnectedPorts]];
 	
 }
 

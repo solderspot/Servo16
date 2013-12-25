@@ -729,17 +729,17 @@
                         <rect key="frame" x="19" y="20" width="563" height="156"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" id="9QD-wY-IGZ">
-                            <rect key="frame" x="1" y="1" width="546" height="154"/>
+                            <rect key="frame" x="1" y="1" width="561" height="154"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView ambiguous="YES" editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" id="ZcM-Hy-FwZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="546" height="154"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="561" height="154"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="546" height="154"/>
+                                    <size key="minSize" width="561" height="154"/>
                                     <size key="maxSize" width="689" height="10000000"/>
                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="546" height="154"/>
+                                    <size key="minSize" width="561" height="154"/>
                                     <size key="maxSize" width="689" height="10000000"/>
                                 </textView>
                             </subviews>
@@ -750,14 +750,14 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="F0Q-7S-73J">
-                            <rect key="frame" x="547" y="1" width="15" height="154"/>
+                            <rect key="frame" x="546" y="1" width="16" height="154"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="200" translatesAutoresizingMaskIntoConstraints="NO" id="Pte-WL-JDv">
                         <rect key="frame" x="87" y="451" width="187" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="xFz-ci-rB8"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="xFz-ci-rB8"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="qAU-GI-tv2"/>
                         </connections>
@@ -774,7 +774,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="201" translatesAutoresizingMaskIntoConstraints="NO" id="TSq-p9-HS5">
                         <rect key="frame" x="88" y="426" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="1Ba-M8-W6X"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="1Ba-M8-W6X"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="Evu-kq-mhb"/>
                         </connections>
@@ -791,7 +791,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="202" translatesAutoresizingMaskIntoConstraints="NO" id="KN7-kb-eNo">
                         <rect key="frame" x="87" y="401" width="187" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="Cko-yC-2yD"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="Cko-yC-2yD"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="15E-Uq-bCn"/>
                         </connections>
@@ -808,7 +808,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="203" translatesAutoresizingMaskIntoConstraints="NO" id="KtG-U4-fxq">
                         <rect key="frame" x="87" y="376" width="187" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="Jun-cf-Ofv"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="Jun-cf-Ofv"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="Gnp-QA-TFM"/>
                         </connections>
@@ -825,7 +825,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="204" translatesAutoresizingMaskIntoConstraints="NO" id="evd-gs-U0l">
                         <rect key="frame" x="88" y="351" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="mO9-mF-P5G"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="mO9-mF-P5G"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="KmM-2b-I5z"/>
                         </connections>
@@ -842,7 +842,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="205" translatesAutoresizingMaskIntoConstraints="NO" id="Ihk-uj-IOE">
                         <rect key="frame" x="89" y="326" width="185" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="g8M-25-Bb2"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="g8M-25-Bb2"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="392-Bk-ghS"/>
                         </connections>
@@ -859,7 +859,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="206" translatesAutoresizingMaskIntoConstraints="NO" id="TyD-Vw-2Ov">
                         <rect key="frame" x="88" y="301" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="hUH-3h-av6"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="hUH-3h-av6"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="WDh-Z9-bXn"/>
                         </connections>
@@ -876,7 +876,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="207" translatesAutoresizingMaskIntoConstraints="NO" id="Ofb-lM-8oz">
                         <rect key="frame" x="88" y="276" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="7DC-N9-lXJ"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="7DC-N9-lXJ"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="nxP-Cy-cYS"/>
                         </connections>
@@ -893,7 +893,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="209" translatesAutoresizingMaskIntoConstraints="NO" id="X0m-2d-Ifa">
                         <rect key="frame" x="397" y="426" width="187" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="Ocq-KG-EQV"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="Ocq-KG-EQV"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="RaL-w4-1D1"/>
                         </connections>
@@ -910,7 +910,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="210" translatesAutoresizingMaskIntoConstraints="NO" id="jwR-Cp-Y2b">
                         <rect key="frame" x="398" y="401" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="SzD-BU-eEU"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="SzD-BU-eEU"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="nKt-TH-eUq"/>
                         </connections>
@@ -927,7 +927,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="211" translatesAutoresizingMaskIntoConstraints="NO" id="PcX-GZ-Eiz">
                         <rect key="frame" x="397" y="376" width="187" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="VaO-AY-T4W"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="VaO-AY-T4W"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="fiL-54-V0Y"/>
                         </connections>
@@ -944,7 +944,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="212" translatesAutoresizingMaskIntoConstraints="NO" id="Ptb-EU-AmT">
                         <rect key="frame" x="397" y="351" width="187" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="f06-mA-yL9"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="f06-mA-yL9"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="ijP-VG-enU"/>
                         </connections>
@@ -961,7 +961,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="213" translatesAutoresizingMaskIntoConstraints="NO" id="1En-H4-IjH">
                         <rect key="frame" x="398" y="326" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="xNu-3w-bvI"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="xNu-3w-bvI"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="Zx4-cN-cAB"/>
                         </connections>
@@ -978,7 +978,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="214" translatesAutoresizingMaskIntoConstraints="NO" id="fdU-tc-ebs">
                         <rect key="frame" x="399" y="301" width="185" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="ss3-pw-LYf"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="ss3-pw-LYf"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="gbn-o6-Bpw"/>
                         </connections>
@@ -995,7 +995,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="215" translatesAutoresizingMaskIntoConstraints="NO" id="iWn-jQ-Qcr">
                         <rect key="frame" x="398" y="276" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="9QC-mQ-ec1"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="9QC-mQ-ec1"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="hhc-pN-RGZ"/>
                         </connections>
@@ -1012,7 +1012,7 @@
                     <slider verticalHuggingPriority="750" fixedFrame="YES" tag="208" translatesAutoresizingMaskIntoConstraints="NO" id="Dhq-hb-iZn">
                         <rect key="frame" x="398" y="451" width="186" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="180" doubleValue="90" tickMarkPosition="above" sliderType="linear" id="V0Z-zo-uc3"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1800" doubleValue="900" tickMarkPosition="above" sliderType="linear" id="V0Z-zo-uc3"/>
                         <connections>
                             <action selector="servoChanged:" target="gbi-Oa-p3A" id="oAn-ne-1yb"/>
                         </connections>

@@ -1,6 +1,6 @@
 //
 //  
-//  Servorator16.ino
+//  Servo16_Simple.ino
 //
 //  Copyright (c) 2013 Solder Spot. All rights reserved.
 //
@@ -29,62 +29,48 @@
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // include needed librarys
-#include <Wire.h>
-#include <Adafruit_PWMServoDriver.h>
-#include <SS_Servorator.h>
+#include <Servo.h>
 
-// create the servo driver instance
-// change 0x40 to match your servo shield if necessary
-Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver(0x40);  
 
-// our servorator instance
-SS_Servorator sr = SS_Servorator(16);
+#define NUM_SERVOS 6
 
-// string used to store incomming commands
-String cmd = NULL;  
+Servo servo[NUM_SERVOS];
 
-// forward references
-SS_ServoHandler update_servo;
+// forward reference
 String parseTill( char delim, int *pos, String str );
 
-// sketch setup
 void setup() 
 {
   // init serial port coms
   Serial.begin(9600);
 
-  // init Adafruit's driver and set pulse frequency
-  pwm.begin();
-  pwm.setPWMFreq(50);  
+  // assign PWM pins to servos
+  servo[0].attach(3);
+  servo[1].attach(5);
+  servo[2].attach(6);
+  servo[3].attach(9);
+  servo[4].attach(10);
+  servo[5].attach(11);
   
-  // register our servo update handler
-  sr.setServoHandler( update_servo, NULL);
-
   // tell Servo16 app that we are ready for commands
-  Serial.println("Servo16 Ready!");
+  Serial.println("Servo16_Simple Ready!");
 }
 
 // main loop
 void loop()
 {
-  // sr.service() needs to be called regularly so that
-  // the servos are updated
-  sr.service();
-  // sr.service() will call update_servo() when needed 
-  
-  // don't delay loop as serialEvent() will also get delayed
+  // don't delay loop as serialEvent() will be delayed too
 }
 
 // the servo handler for Servorator
-void update_servo( SS_Index servo, SS_Angle angle, void *data)
+void update_servo( int index, int angle)
 {
-  // angles are in tenths of degrees so 180 degrees is actually 1800
-  // 4096 ticks is 20,000 us (50Hz)
-  // Angle 0 is 500 us
-  // angle 1800 is 2,500 us
-  long ticks = ((500L + (2000L*angle)/1800L)*4096L)/20000L;
-  // update the servo channel with the new pusle
-  pwm.setPWM(servo, 0, ticks);
+  if (index >= 0 && index < NUM_SERVOS)
+  {
+    // angle is in tenths of a degree
+    //Serial.println(angle/10);
+    servo[index].write( angle/10);
+  }
 }
 
 // parse command and execute
@@ -97,36 +83,16 @@ void execute( String str )
   
   if( action == "s" )
   {
-    //format {s:<servo-index>:<new-angle>}
-    String servo = parseTill(':', &pos, str);
+    //format {s:<servo-index>:<new-angle-in-tenths>}
+    String index = parseTill(':', &pos, str);
     String angle = parseTill(':', &pos, str);
-    // multiple angle by 10 as Servorator angles are in tenths of degrees
-    sr.setServoAngle(servo.toInt(), angle.toInt()*10);
-  }
-  else if ( action == "rate" )
-  {
-    //format {rate:<servo>:<ms per degree>}
-    String servo = parseTill(':', &pos, str);
-    String ms = parseTill(':', &pos, str);
-    SS_Index s = servo.toInt();
-    if( s < 0 )
-    {
-      sr.setMaxRate( ms.toInt());
-    }
-    else
-    {
-      sr.setServoMaxRate( s, ms.toInt());
-    }
-  }
-  else if ( action == "ui")
-  {
-    //format {si:<ms>}
-    String ms = parseTill(':', &pos, str);
-    sr.setUpdateInterval( ms.toInt());
+    update_servo(index.toInt(), angle.toInt());
   }
 }
 
-// called after every loop() to handle serial events
+String cmd = NULL;  // used to store incomming command
+
+// called after every loop() to handle serial coms
 void serialEvent() 
 {
   

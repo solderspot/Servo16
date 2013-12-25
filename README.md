@@ -1,18 +1,42 @@
 Servo16
--------
+=======
 
-Simple OSX app + sketch to drive the Adafruit Servo Shield.
+Simple OSX app to control servos on an Arduino baord, or any device connected via a serial link.
 
-**Step 1:** Use Xcode to build and run Servo16 app.
-
-**Setp 2:** Down load and install the [Adafruit's Servo Shield Library](http://https://github.com/adafruit/Adafruit-PWM-Servo-Driver-Library). 
-
-**Step 3:** Upload Servo16.ino sketch to Arduino... or install the [SS_Servorator Library](https://github.com/solderspot/SS_Servorator.git) and upload the Servorator16.ino sketch to the Arduino.
+![image](screenshot.png)
 
 
-**Step 4:** In the Servo16 app connect to Arduino. Use the sliders to control the servos. **Note:** Servo Speed and Update Freq sliders only work with the Servorator16.ino scketch. They have no efect with the Servo16.ino sketch.
+How it Works
+------------
 
+The app lets you connect to any serial device using the Port and Baud controls. 
 
+Any change in one of the servo sliders results in a command string being written to the connect port. The command string has the format:
+
+`{s:<servo-num>:<new-angle>}`
+
+The <sero-num> and <new-angle> are integers. The angles are in tenths of degrees and have the range 0..1800.
+
+Changes to the Sero Speed slider generates the command:
+
+`{rate:<servo-num>:<ms-per-degree>}`
+
+This is a global speed slider so <servo-num> will be -1, meaning all servos. <ms-per-degree> is the number of milliseconds it takes to turn one degree.
+
+Changes to the Update Freq slider generates the command:
+
+`{ui:<ms-interval>}`
+
+Where <ms-interval> is the time in milliseconds between servo updates.
+
+The 'ui' and 'rate' commands are meant for use with the [SS_Servorator](https://github.com/solderspot/SS_Servorator) library.
+
+**Note:** If the device sends the string "Ready!" to the app, the app will transmit all the current slider states. 
+
+Examples Sketches
+-----------------
+
+Examine the README.md in the 'sketches' subfoler to see examples of how to control servos using Servo16. Some of the examples require additional libraries.
 
 Warning
 -------
