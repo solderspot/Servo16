@@ -36,7 +36,9 @@ The `ui` and `rate` commands are meant for use with the [SS_Servorator](https://
 Examples Sketches
 -----------------
 
-Examine the README.md in the 'sketches' subfoler to see examples of how to control servos using Servo16. **Note:** Some of the examples require additional libraries.
+Examine the README.md in the 'sketches' subfoler to see examples of how to control servos using Servo16.
+
+**Note:** Some of the examples require additional libraries.
 
 You can see the app in action [in this video clip
 ](http://youtu.be/Ep0Tf669s-o).
