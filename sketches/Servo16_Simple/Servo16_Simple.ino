@@ -63,13 +63,13 @@ void loop()
 }
 
 // the servo handler for Servorator
-void update_servo( int index, int angle)
+void update_servo( int index, long angle)
 {
   if (index >= 0 && index < NUM_SERVOS)
   {
-    // angle is in tenths of a degree
-    //Serial.println(angle/10);
-    servo[index].write( angle/10);
+    // angle is in 1000ths of degrees
+    Serial.println(angle/1000L);
+    servo[index].write( angle/1000L);
   }
 }
 
@@ -83,7 +83,7 @@ void execute( String str )
   
   if( action == "s" )
   {
-    //format {s:<servo-index>:<new-angle-in-tenths>}
+    //format {s:<servo-index>:<new-angle-in-1000ths>}
     String index = parseTill(':', &pos, str);
     String angle = parseTill(':', &pos, str);
     update_servo(index.toInt(), angle.toInt());

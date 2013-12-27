@@ -79,9 +79,9 @@ void loop()
 // the servo handler for Servorator
 void update_servo( SS_Index index, SS_Angle angle, void *data)
 {
-  // SS_Angle is in tenths of a degree
-  //Serial.println(angle/10);
-  servo[index].write( angle/10);
+  // SS_Angle is in 1000th of degrees
+  //Serial.println(angle/1000);
+  servo[index].write( angle/1000L);
 }
 
 // parse command and execute
@@ -94,25 +94,18 @@ void execute( String str )
   
   if( action == "s" )
   {
-    //format {s:<servo-index>:<new-angle-in-tenths>}
+    //format {s:<servo-index>:<new-angle-in-1000ths>}
     String servo = parseTill(':', &pos, str);
     String angle = parseTill(':', &pos, str);
-    sr.setServoAngle(servo.toInt(), angle.toInt());
+    sr.setServoTargetAngle(servo.toInt(), angle.toInt());
   }
   else if ( action == "rate" )
   {
-    //format {rate:<servo>:<ms per degree>}
+    //format {rate:<servo>:<1000th degrees per second>}
     String servo = parseTill(':', &pos, str);
-    String ms = parseTill(':', &pos, str);
+    String dps = parseTill(':', &pos, str);
     SS_Index s = servo.toInt();
-    if( s < 0 )
-    {
-      sr.setMaxRate( ms.toInt());
-    }
-    else
-    {
-      sr.setServoMaxRate( s, ms.toInt());
-    }
+    sr.setServoMaxVelocity( s, dps.toInt());
   }
   else if ( action == "ui")
   {

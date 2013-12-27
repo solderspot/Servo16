@@ -15,13 +15,13 @@ Any change in one of the servo sliders results in a command string being written
 
 `{s:<servo-num>:<new-angle>}`
 
-The `<sero-num>` and `<new-angle>` are integers. The angles are in tenths of degrees and have the range 0..1800.
+The `<sero-num>` and `<new-angle>` are integers. The angles are in 1000ths of degrees and have the range 0..180000.
 
 Changes to the 'Servo Speed' slider generates the command:
 
-`{rate:<servo-num>:<ms-per-degree>}`
+`{rate:<servo-num>:<1000th-degrees-per-second>}`
 
-This is a global speed slider so `<servo-num>` will be -1, meaning all servos. `<ms-per-degree>` is the number of milliseconds it takes to turn one degree.
+This is a global speed slider so `<servo-num>` will be -1, meaning all servos. `<1000th-degrees-per-second>` is the number of 1000th degrees to turn in one second.
 
 Changes to the 'Update Freq' slider generates the command:
 
@@ -32,6 +32,11 @@ Where `<ms-interval>` is the time in milliseconds between servo updates.
 The `ui` and `rate` commands are meant for use with the [SS_Servorator](https://github.com/solderspot/SS_Servorator) library.
 
 **Note:** If the app recieves the string "Ready!" from the connected device, it will transmit all the current slider states.
+
+Important
+---------
+
+Make sure you use V1.1.0 or later of SS_Servorator.
 
 Examples Sketches
 -----------------

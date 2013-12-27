@@ -68,16 +68,16 @@ void loop()
 }
 
 // the servo handler for Servorator
-void update_servo( int index, int angle)
+void update_servo( int index, long angle)
 {
   if (index >= 0 && index < NUM_SERVOS)
   {
-    //Serial.println(angle);
-    // angles are in tenths of degrees so 180 degrees is actually 1800
+    //Serial.println(angle/1000);
+    // angles are in 1000ths of degrees so 180 degrees is actually 180000
     // 4096 ticks is 20,000 us (50Hz)
     // Angle 0 is 500 us
     // angle 1800 is 2,500 us
-    long ticks = ((500L + (2000L*angle)/1800L)*4096L)/20000L;
+    long ticks = ((500L + (2000L*angle)/180000L)*4096L)/20000L;
     // update the servo channel with the new pusle
     pwm.setPWM(index, 0, ticks);
   }
@@ -93,7 +93,7 @@ void execute( String str )
   
   if( action == "s" )
   {
-    //format {s:<servo-index>:<new-angle-in-tenths>}
+    //format {s:<servo-index>:<new-angle-in-1000ths>}
     String servo = parseTill(':', &pos, str);
     String angle = parseTill(':', &pos, str);
     update_servo(servo.toInt(), angle.toInt());
@@ -104,7 +104,6 @@ void execute( String str )
 // called after every loop() to handle serial events
 void serialEvent() 
 {
-  
   while (Serial.available()) 
   {
     char ch = (char)Serial.read();

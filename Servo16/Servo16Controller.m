@@ -91,10 +91,10 @@
 
 - (IBAction)speedChanged:(NSSlider*)sender
 {
-    int speed = [self mapSliderSpeed:100 - [sender intValue]];
+    int speed = [sender intValue];
 	NSData *dataToSend = [[NSString stringWithFormat:@"{rate:-1:%d}", speed] dataUsingEncoding:NSUTF8StringEncoding];
 	[self.serialPort sendData:dataToSend];
-    [self output:[NSString stringWithFormat:@"Speed : %d ms per degree\n", speed]];
+    [self output:[NSString stringWithFormat:@"Speed : %d.%d degrees per second\n", speed/1000, speed%1000]];
 }
 
 - (IBAction)freqChanged:(NSSlider*)sender

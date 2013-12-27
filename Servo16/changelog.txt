@@ -1,4 +1,8 @@
 
+V1.3.0 - 12/26/13
+
+ - Support for changes to SS_Servorator V1.1.0
+
 V1.2.0 - 12/23/13
 
  - Added SS_Servorator support for servo speed and service frequency

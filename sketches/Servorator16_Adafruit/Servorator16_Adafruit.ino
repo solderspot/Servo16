@@ -84,11 +84,11 @@ void update_servo( SS_Index servo, SS_Angle angle, void *data)
 {
   //Serial.println(angle/10);
   
-  // angles are in tenths of degrees so 180 degrees is actually 1800
+  // angles are in 1000th of degrees so 180 degrees is actually 180,000
   // 4096 ticks is 20,000 us (50Hz)
   // Angle 0 is 500 us
-  // angle 1800 is 2,500 us
-  long ticks = ((500L + (2000L*angle)/1800L)*4096L)/20000L;
+  // angle 180,000 is 2,500 us
+  long ticks = ((500L + (2000L*angle)/180000L)*4096L)/20000L;
   // update the servo channel with the new pusle
   pwm.setPWM(servo, 0, ticks);
 }
@@ -103,26 +103,18 @@ void execute( String str )
   
   if( action == "s" )
   {
-    //format {s:<servo-index>:<new-angle-in-tenths>}
+    //format {s:<servo-index>:<new-angle-in-1000ths>}
     String servo = parseTill(':', &pos, str);
     String angle = parseTill(':', &pos, str);
-    // multiple angle by 10 as Servorator angles are in tenths of degrees
-    sr.setServoAngle(servo.toInt(), angle.toInt());
+    sr.setServoTargetAngle(servo.toInt(), angle.toInt());
   }
   else if ( action == "rate" )
   {
-    //format {rate:<servo>:<ms per degree>}
+    //format {rate:<servo>:<1000th degrees per second>}
     String servo = parseTill(':', &pos, str);
-    String ms = parseTill(':', &pos, str);
+    String dps = parseTill(':', &pos, str);
     SS_Index s = servo.toInt();
-    if( s < 0 )
-    {
-      sr.setMaxRate( ms.toInt());
-    }
-    else
-    {
-      sr.setServoMaxRate( s, ms.toInt());
-    }
+    sr.setServoMaxVelocity( s, dps.toInt());
   }
   else if ( action == "ui")
   {
