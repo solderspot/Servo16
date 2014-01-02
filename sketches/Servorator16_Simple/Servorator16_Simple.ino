@@ -2,7 +2,7 @@
 //  
 //  Servorator16_Simple.ino
 //
-// Copyright (c) 2013, Solder Spot
+// Copyright (c) 2013-2014, Solder Spot
 // All rights reserved. 
 
 // This sketch requires the following library:
